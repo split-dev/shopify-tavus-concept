@@ -1,49 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "adaptive_banner_b3WJVK": {
+      "type": "adaptive-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "description_EiUDGH": {
+          "type": "description",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "description": "<h1>Innovative Complete Solutions</h1><p>Our brands cover different categories and complement each other to form a holistic solution: Whether it's a hair salon, cosmetic studio, resort, spa or wellness business - right up to lifestyle areas like fitness and yoga.</p>"
           }
         },
-        "text": {
-          "type": "text",
+        "button_NxdGPG": {
+          "type": "button",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_name": "Become our Partner",
+            "button_link": "shopify://collections",
+            "button_style": "primary"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "description_EiUDGH",
+        "button_NxdGPG"
       ],
+      "name": "Adaptive banner",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
+        "section_link": "",
+        "image": "shopify://shop_images/iconamoon_search-thin_1_1.jpg",
+        "markup": "image_as_background",
+        "image_height_auto": false,
+        "image_height_desktop": 70,
+        "image_max_height_desktop": 570,
+        "image_height_mobile": 150,
+        "image_max_height_mobile": 410,
+        "fit_to_container": "none",
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "bg": "linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) 100%)",
+        "bg_blur": 0,
+        "vertical_alignment": "center",
+        "horizontal_alignment": "start",
+        "alignment": "left",
+        "max_width": 800,
+        "content_box_bg": false,
+        "content_padding_top": 20,
+        "content_padding_bottom": 20,
+        "content_padding_top_mobile": 20,
+        "content_padding_bottom_mobile": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
       }
     },
     "rich_text": {
@@ -59,7 +73,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         }
       },
@@ -68,6 +82,8 @@
         "text"
       ],
       "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 40,
@@ -77,134 +93,87 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
+        "full_width": false,
         "show_view_all": false,
-        "swipe_on_mobile": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 28,
         "padding_bottom": 36
       }
     },
-    "collage": {
-      "type": "collage",
+    "adaptive_banner_33rFWV": {
+      "type": "adaptive-banner",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "description_dx4wK9": {
+          "type": "description",
           "settings": {
-            "collection": ""
+            "description": "<h2>Access Exclusive Partner Pricing</h2><p>We offer flexible collaboration terms based on order volume, purchase frequency, and your business needs. Leave a request, and our manager will prepare a personalized proposal for you.</p>"
           }
         },
-        "product": {
-          "type": "product",
+        "button_tQddG3": {
+          "type": "button",
           "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
+            "button_name": "Become our Partner",
+            "button_link": "shopify://collections",
+            "button_style": "primary"
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "description_dx4wK9",
+        "button_tQddG3"
       ],
+      "name": "Adaptive banner",
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
+        "section_link": "",
+        "image": "shopify://shop_images/098f8a5b7d8d60496aeff420114e857a0fc387aa_1_1.png",
+        "markup": "image_as_background",
+        "image_height_auto": false,
+        "image_height_desktop": 100,
+        "image_max_height_desktop": 360,
+        "image_height_mobile": 200,
+        "image_max_height_mobile": 390,
+        "fit_to_container": "none",
+        "color_scheme": "scheme-3",
+        "bg": "linear-gradient(310deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 99%)",
+        "bg_blur": 0,
+        "vertical_alignment": "center",
+        "horizontal_alignment": "start",
+        "alignment": "left",
+        "max_width": 780,
+        "content_box_bg": false,
+        "content_padding_top": 20,
+        "content_padding_bottom": 20,
+        "content_padding_top_mobile": 20,
+        "content_padding_bottom_mobile": 20,
         "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
       }
     }
   },
   "order": [
-    "image_banner",
+    "adaptive_banner_b3WJVK",
     "rich_text",
     "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "adaptive_banner_33rFWV"
   ]
 }

@@ -47,6 +47,7 @@
         .adaptive-banner__image.image-height-auto {
             width: 100%;
             height: auto;
+            position: absolute;
         }
         .adaptive-banner__content-wrapper {
             height: 100%;
@@ -106,13 +107,16 @@
         .description {
             display: block;
             & > *:not(:first-child) {
-                margin-top: 12px;
+                margin-top: 16px;
                 margin-bottom: 0;
+            }
+            h1, h2, h3, h4, h5, .h1, h2, .h3, .h4, .h5 {
+                margin: 0;
             }
         }
         .btn {
             &:not(:first-child) {
-                margin-top: 30px;
+                margin-top: 32px;
             }
             @include media-breakpoint-up(sm) {
                 min-width: 16.2rem;

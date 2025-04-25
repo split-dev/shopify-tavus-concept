@@ -105,6 +105,13 @@
     "name": "t:settings_schema.typography.name",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "default_fonts",
+        "label": "Default fonts",
+        "default": false,
+        "info": "Use the default fonts selected below instead of the built-in custom fonts."
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.typography.settings.header__1.content"
       },
@@ -154,7 +161,7 @@
         "id": "page_width",
         "min": 1000,
         "max": 1600,
-        "step": 100,
+        "step": 10,
         "default": 1200,
         "unit": "px",
         "label": "t:settings_schema.layout.settings.page_width.label"
