@@ -38,6 +38,17 @@
             stroke: rgb(var(--color-button-text));
         }
     }
+    &--primary-stable {
+        min-height: 4rem !important;
+        height: 4rem !important;
+        max-height: 4rem;
+        &:not(:disabled):not([aria-disabled='true']):not(.disabled):hover {
+            transform: scale(1) !important;
+            border-color: $primary-dark;
+            background-color: $primary-dark;
+            color: $primary-light;
+        }
+    }
     &--secondary {
         border-color: rgb(var(--color-button));
         background-color: rgb(var(--color-button-text));

@@ -1053,6 +1053,45 @@
         "margin_top": {
           "label": "Top margin"
         },
+        "header__1": {
+          "content": "Email Signup",
+          "info": "Subscribers added automatically to your “accepted marketing” customer list. [Learn more](https://help.shopify.com/manual/customers/manage-customers)"
+        },
+        "header__2": {
+          "content": "Social media icons",
+          "info": "To display your social media accounts, link them in your [theme settings](/editor?context=theme&category=social%20media)."
+        },
+        "show_social": {
+          "label": "Show social media icons"
+        },
+        "header__3": {
+          "content": "Country/region selector"
+        },
+        "header__4": {
+          "info": "To add a country/region, go to your [market settings.](/admin/settings/markets)"
+        },
+        "enable_country_selector": {
+          "label": "Enable country/region selector"
+        },
+        "header__5": {
+          "content": "Language selector"
+        },
+        "header__6": {
+          "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+        },
+        "enable_language_selector": {
+          "label": "Enable language selector"
+        },
+        "header__7": {
+          "content": "Payment methods"
+        },
+        "payment_enable": {
+          "label": "Show payment icons"
+        },
+        "header__8": {
+          "content": "Policy links",
+          "info": "To add store policies, go to your [policy settings](/admin/settings/legal)."
+        },
         "header__9": {
           "content": "Utilities"
         },
