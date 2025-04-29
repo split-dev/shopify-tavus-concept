@@ -145,27 +145,29 @@
                 style="--animation-order: {{ forloop.index }};"
               {% endif %}
             >
-              {%- if block.settings.heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-              {%- endif -%}
-
-              {%- case block.type -%}
-                {%- when 'link_list' -%}
-                  {%- if block.settings.menu != blank -%}
-                    <ul class="footer-block__details-content list-unstyled">
-                      {%- for link in block.settings.menu.links -%}
-                        <li>
-                          <a
-                            href="{{ link.url }}"
-                            class="link bodytext-md link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                          >
-                            {{ link.title | escape }}
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
-              {%- endcase -%}
+              <div>
+                {%- if block.settings.heading != blank -%}
+                  <h6 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h6>
+                {%- endif -%}
+  
+                {%- case block.type -%}
+                  {%- when 'link_list' -%}
+                    {%- if block.settings.menu != blank -%}
+                      <ul class="footer-block__details-content list-unstyled">
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a
+                              href="{{ link.url }}"
+                              class="link bodytext-md link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            >
+                              {{ link.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                {%- endcase -%}
+              </div>
             </div>
           {%- endfor -%}
 
@@ -185,17 +187,10 @@
                     {%- if block.settings.menu != blank -%}
                       <div id="faq-title-{{ forloop.index }}" class="js-accordion-{{ section.index }} footer__mobile-accordion-title d-flex justify-content-between {% if forloop.first %}active{% endif %}">
                       {%- if block.settings.heading != blank -%}
-                        <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                        <h6 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h6>
                       {%- endif -%}
                       <span class="footer__mobile-accordion-icon">
-                        <!-- SVG Plus -->
-                        <svg class="plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M4.28188 0.919922V4.27992H0.921875V5.71992H4.28188V9.07992H5.72188V5.71992H9.08188V4.27992H5.72188V0.919922H4.28188Z" fill="white"/>
-                        </svg>
-                        <!-- SVG Minus -->
-                        <svg class="minus" width="10" height="10" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M4.28188 0.25V0.280044H0.921875V1.72004H4.28188V1.75H5.72188V1.72004H9.08188V0.280044H5.72188V0.25H4.28188Z" fill="white"/>
-                        </svg>
+                        {{- 'icon-chevron.svg' | inline_asset_content -}}
                       </span>
                       </div>
                       <div class="footer__mobile-accordion-content">

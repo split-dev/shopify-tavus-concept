@@ -1,0 +1,143 @@
+{{ 'advantages.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .advantages--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 750px) {
+    .advantages--{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }}">
+    <section class="advantages advantages--{{ section.id }}">
+        <div class="page-width">
+            <div class="advantages__title">
+                <h2 class="h1">{{ section.settings.title }}</h2>
+            </div>
+            <div class="advantages__wrapper d-flex">
+                {% for block in section.blocks %}
+                    <div class="advantages__tile">
+                    <div>
+                        <div class="advantages__tile-heading ">
+                            {% if block.settings.svg %}
+                                <div class="advantages__img-wrapper d-flex justify-content-center align-items-center">
+                                    {{ block.settings.svg| image_url: width: '300' | image_tag: loading: 'lazy' }}
+                                </div>
+                            {% endif %}
+                            {% if block.settings.title %}
+                                <h4 class="advantages__title">{{ block.settings.title }}</h4>
+                            {% endif %}
+                        </div>
+                        {% if block.settings.text %}
+                            <div class="advantages__text">{{ block.settings.text }}</div>
+                        {% endif %}
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% schema %}
+{
+  "name": "Advantages",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "svg",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advantages"
+    }
+  ]
+}
+{% endschema %}

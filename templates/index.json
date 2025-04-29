@@ -60,6 +60,58 @@
         "padding_bottom_mobile": 24
       }
     },
+    "advantages_yE4itM": {
+      "type": "advantages",
+      "blocks": {
+        "text_T4gp9E": {
+          "type": "text",
+          "settings": {
+            "svg": "shopify://shop_images/Icons-Premium.svg",
+            "title": "Premium Quality",
+            "text": "<p>We use only pure, eco-friendly ingredients to create products that promote wellness and sustainability.</p>"
+          }
+        },
+        "text_B79nym": {
+          "type": "text",
+          "settings": {
+            "svg": "shopify://shop_images/Icons-Ingredients.svg",
+            "title": "Sustainable Ingredients",
+            "text": "<p>We use natural, sustainable ingredients that match your brand’s environmental values.</p>"
+          }
+        },
+        "text_3VU8MT": {
+          "type": "text",
+          "settings": {
+            "svg": "shopify://shop_images/Icons-Supply.svg",
+            "title": "Next Day Delivery",
+            "text": "<p>With our reliable and punctual delivery, we ensure your business needs are met without any delays.</p>"
+          }
+        },
+        "text_7z8MD9": {
+          "type": "text",
+          "settings": {
+            "svg": "shopify://shop_images/Icons-Customizable.svg",
+            "title": "Customizable Solutions",
+            "text": "<p>We provide flexible options to customize products, helping you differentiate your brand in the market.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_T4gp9E",
+        "text_B79nym",
+        "text_3VU8MT",
+        "text_7z8MD9"
+      ],
+      "name": "Advantages",
+      "settings": {
+        "color_scheme": "",
+        "title": "Why Choose Us?",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 12
+      }
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -172,6 +224,7 @@
   },
   "order": [
     "adaptive_banner_b3WJVK",
+    "advantages_yE4itM",
     "rich_text",
     "featured_collection",
     "adaptive_banner_33rFWV"
