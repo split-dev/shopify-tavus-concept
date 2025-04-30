@@ -36,3 +36,61 @@ html {
 .hide {
   display: none !important;
 }
+
+
+.custom-accordion {
+  &__block {
+    border-bottom: solid 1px $greyscale-40;
+    &:hover {
+      border-bottom: solid 1px $primary;
+      .custom-accordion__title {
+        h6 {
+          color: $primary;
+        }
+        path {
+          stroke: $primary;
+        }
+      }
+    }
+  }
+  &__icon {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      position: absolute;
+      right: 7px;
+      top: 50%;
+      svg {
+        position: absolute;
+        transition: transform 0.3s ease;
+    }
+  }
+  &__accordion {
+      display: block;
+  }
+  &__title {
+      cursor: pointer;
+      width: 100%;
+      transition: (--duration-medium);
+      padding-bottom: 16px;
+      padding-top: 32px;
+      position: relative;
+      &.active svg {
+          transform: rotate(180deg);
+      }
+      > h6,
+      svg,
+      path {
+        transition: 0.3s ease;
+      }
+      h6 {
+        max-width: 90%;
+      }
+  }
+  &__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      max-width: 700px;
+  }
+}

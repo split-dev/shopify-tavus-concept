@@ -1,0 +1,10 @@
+@use '../settings/config' as *;
+
+.accordion {
+    &__title {
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}
