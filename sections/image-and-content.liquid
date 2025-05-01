@@ -1,0 +1,284 @@
+{{ 'image-and-content.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .image-and-content--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 750px) {
+    .image-and-content--{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign image_width = section.settings.image.width
+  assign image_height = image_width | divided_by: section.settings.image.aspect_ratio
+-%}
+
+<div class="color-{{ section.settings.color_scheme }}">
+  <section class="image-and-content image-and-content--{{ section.id }}">
+    <div class="page-width">
+      {% if section.settings.title != blank %}
+        <div class="image-and-content__title">
+          <h2 class="h1">{{ section.settings.title }}</h2>
+      </div>
+      {% endif %}
+      <div class="image-and-content__wrapper">
+        <div class="image-and-content__media">
+          {%- if section.settings.image != blank -%}
+            <picture>
+              {%- if section.settings.image_mobile != blank -%}
+                <source
+                  media="(max-width: 749.98px)"
+                  srcset="
+                    {%- if section.settings.image_mobile.width >= 375 -%}{{ section.settings.image_mobile | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if section.settings.image_mobile.width >= 550 -%}{{ section.settings.image_mobile | image_url: width: 550 }} 550w,{%- endif -%}
+                    {%- if section.settings.image_mobile.width >= 750 -%}{{ section.settings.image_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+                  ">
+              {%- endif -%}
+              {{ section.settings.image | image_url: width: 3840 | image_tag:
+                  width: image_width,
+                  height: image_height,
+                  sizes: '100vw',
+                  widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+            </picture>
+            {%- else -%}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+  
+          {%- if section.settings.image_overflow == 'circle' -%}
+            <svg class="banner-fluid__media-mask" preserveAspectRatio="none" width="315" height="600" viewBox="0 0 315 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M313.979 0H0V600H314.103C149.47 600 16 465.679 16 300C16 134.363 149.403 0.0678189 313.979 0Z" fill="#1E1E1E"/>
+            </svg>
+  
+            <svg class="banner-fluid__media-mask-mobile" preserveAspectRatio="none" width="374" height="199" viewBox="0 0 374 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M374 0.5H0V198.66C0.0856128 96.1114 83.7794 13 187 13C290.273 13 374 96.1966 374 198.818V0.5Z" fill="#1E1E1E"/>
+            </svg>  
+          {%- endif -%}
+          {%- if section.settings.image_overflow == 'octagon' -%}
+            <svg class="banner-fluid__media-mask" preserveAspectRatio="none" width="231" height="600" viewBox="0 0 231 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.000479755C13.3628 0.000480339 26.1762 5.36657 35.6342 14.8997L180.31 160.846C189.748 170.379 195.066 183.313 195.066 196.797V403.204C195.066 416.689 189.768 429.622 180.31 439.155L35.6146 585.101C26.2035 594.607 13.4174 599.969 0.096379 600L230.566 600V0L0 0.000479755Z" fill="#1E1E1E"/>
+            </svg>
+  
+            <svg class="banner-fluid__media-mask-mobile" preserveAspectRatio="none" width="375" height="129" viewBox="0 0 375 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M375 0H0V128.274C0 119.898 3.35381 111.866 9.31204 105.937L100.528 15.2496C106.486 9.33329 114.57 6 122.998 6H252.002C260.43 6 268.514 9.32099 274.472 15.2496L365.688 105.95C371.646 111.866 375 119.91 375 128.286V0Z" fill="#1E1E1E"/>
+            </svg>
+          {%- endif -%}
+  
+  
+        </div>
+        <div class="image-and-content__inner">
+          <div class="image-and-content__blocks">
+            {% for block in section.blocks %}
+              {%- case block.type -%}
+                {%- when 'accordion' -%}
+                  <div
+                    class="custom-accordion__block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {{ block.shopify_attributes }}
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                    <div class="custom-accordion__accordion">
+                      <div id="title-{{ forloop.index }}" class="js-accordion-{{ block.index }} custom-accordion__title d-flex justify-content-between {% if forloop.first %}active{% endif %}">
+                        {% if block.settings.title %}
+                          <h6 class="">{{ block.settings.title }}</h6>
+                        {% endif %}
+                      <span class="custom-accordion__icon">
+                        {{- 'icon-chevron.svg' | inline_asset_content -}}
+                      </span>
+                      </div>
+                      <div class="custom-accordion__content">
+                        {% if block.settings.text %}
+                          <div class="custom-accordion__text">{{ block.settings.text }}</div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {%- when 'text' -%}
+                  <div class="image-and-content__inner-text">
+                    {{ block.settings.text }}
+                  </div>
+              {%- endcase -%}
+            {% endfor %}
+          </div>
+          <div class="image-and-content__bottom">
+            {% if section.settings.bottom_text != blank %}
+              <div class="image-and-content__bottom-text">{{ section.settings.bottom_text }}</div>
+            {% endif %}
+            {% if section.settings.button_url != blank %}
+              <div class="custom-app__bottom-button">
+                <a class="btn btn--primary" href="{{ section.settings.button_url }}">{{ section.settings.button_label }}</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+<script>
+  //ACCORDION
+  var acc = document.getElementsByClassName("js-accordion-{{ block.index }}");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+
+  // Set the first accordion as open on page load
+  if (acc.length > 0) {
+    var firstPanel = acc[0].nextElementSibling;
+    firstPanel.style.maxHeight = firstPanel.scrollHeight + "px";
+  }
+
+  // Recalculate maxHeight on window resize
+  window.addEventListener('resize', function() {
+    for (i = 0; i < acc.length; i++) {
+      var panel = acc[i].nextElementSibling;
+      if (acc[i].classList.contains('active')) {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    }
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Image and Content",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_position",
+      "label": "Content Reverse Position",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image (optional)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_text",
+      "label": "Bottom Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image and Content"
+    }
+  ]
+}
+{% endschema %}

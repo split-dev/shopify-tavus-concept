@@ -1,0 +1,40 @@
+@use '../settings/config' as *;
+
+.custom-app {
+    &__title {
+        h2 {
+            margin-top: 0;
+            margin-bottom: 40px;
+            @include media-breakpoint-down(md) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+    // .instafeed-new-layout-wrapper {
+    //     gap: 24px !important;
+    //     @include media-breakpoint-down(md) {
+    //         gap: 8px !important;
+    //         display: flex !important;
+    //         flex-wrap: wrap !important;
+    //     }
+    //     > div {
+    //         @include media-breakpoint-down(md) {
+    //             width: calc(50% - 8px) !important;
+    //             height: calc(50vw * 16 / 12) !important;
+    //             max-height: 350px;
+    //         }
+            
+    //     }
+    // }
+    &__bottom {
+        margin-top: 40px;
+        @include media-breakpoint-down(md) {
+            margin-top: 24px;
+        }
+        a {
+            @include media-breakpoint-down(sm) {
+                width: 100%;
+            }
+        }
+    }
+}
