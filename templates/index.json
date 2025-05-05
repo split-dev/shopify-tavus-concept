@@ -60,6 +60,50 @@
         "padding_bottom_mobile": 24
       }
     },
+    "collections_list_fjBHYN": {
+      "type": "collections-list",
+      "blocks": {
+        "text_MBGqRK": {
+          "type": "text",
+          "settings": {
+            "collection": "beauty-salons"
+          }
+        },
+        "text_baCU6D": {
+          "type": "text",
+          "settings": {
+            "collection": "spa-wellness-centers"
+          }
+        },
+        "text_dbjJJq": {
+          "type": "text",
+          "settings": {
+            "collection": "luxury-hotels-resorts"
+          }
+        },
+        "text_4FKVBt": {
+          "type": "text",
+          "settings": {
+            "collection": "fitness-yoga-mindfulness-spaces"
+          }
+        }
+      },
+      "block_order": [
+        "text_MBGqRK",
+        "text_baCU6D",
+        "text_dbjJJq",
+        "text_4FKVBt"
+      ],
+      "name": "Collections List",
+      "settings": {
+        "color_scheme": "",
+        "title": "Discover the Exclusive Products in Our Categories",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "custom_title_jJzjjz": {
       "type": "custom-title",
       "name": "Custom Title",
@@ -393,6 +437,7 @@
   },
   "order": [
     "adaptive_banner_b3WJVK",
+    "collections_list_fjBHYN",
     "custom_title_jJzjjz",
     "image_and_content_ze4MJk",
     "advantages_yE4itM",

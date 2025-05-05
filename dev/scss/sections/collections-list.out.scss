@@ -1,0 +1,56 @@
+@use '../settings/config' as *;
+
+.collections-list {
+    &__title {
+        h2 {
+            margin-top: 0;
+            margin-bottom: 40px;
+            @include media-breakpoint-down(md) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+    &__wrapper {
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        &.is-loaded {
+            opacity: 1;
+        }
+    }
+    &__tile {
+        a {
+            display: block;
+            aspect-ratio: 1 / 1;
+            text-decoration: none;
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+                span {
+                    color: $primary-dark;
+                }
+            }
+        }
+        picture {
+            display: flex;
+            aspect-ratio: 1 / 1; 
+            position: relative;
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        span {
+            transition: 0.3s;
+            color: rgb(var(--color-heading));
+            font-weight: 700;
+            margin-top: 8px;
+            display: block;
+        }
+    }
+}

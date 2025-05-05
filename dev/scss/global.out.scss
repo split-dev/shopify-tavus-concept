@@ -94,3 +94,22 @@ html {
       max-width: 700px;
   }
 }
+
+.custom-swiper-pagination {
+  position: relative !important;
+  margin-top: 24px;
+  display: flex;
+  bottom: auto !important;
+  top: auto !important;
+  .swiper-pagination-bullet {
+      width: 100%;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      height: 2px !important;
+      opacity: 1;
+      background-color: $greyscale-20
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $greyscale-50;
+  }
+}

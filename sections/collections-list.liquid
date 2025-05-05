@@ -1,0 +1,194 @@
+{{ 'collections-list.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .collections-list--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 750px) {
+    .collections-list--{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<section class="color-{{ section.settings.color_scheme }} collections-list collections-list--{{ section.id }}">
+  <div class="page-width">
+    <div class="collections-list__title">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div class="collections-list__wrapper js-collections-list-init-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- assign visible_blocks_count = 0 -%}
+
+        {% for block in section.blocks %}
+          {%- assign current_collection_handle = collection.handle -%}
+          {%- assign block_collection_handle = block.settings.collection.handle -%}
+
+          {%- if current_collection_handle != block_collection_handle -%}
+            {%- assign visible_blocks_count = visible_blocks_count | plus: 1 -%}
+            <div class="swiper-slide collections-list__tile">
+              <a href="{{ block.settings.collection.url }}">
+                {%- if block.settings.image != blank or block.settings.collection.image != blank -%}
+                  <picture class="">
+                    {% if block.settings.image != blank %}
+                      {%- liquid
+                        assign image_width = block.settings.image.width
+                        assign image_height = image_width | divided_by: block.settings.image.aspect_ratio
+                      -%}
+                      {{ block.settings.image | image_url: width: 3840 | image_tag:
+                        width: image_width,
+                        height: image_height,
+                        sizes: '100vw',
+                        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                    {% else %}
+                      {%- liquid
+                        assign image_width = block.settings.collection.image.width
+                        assign image_height = image_width | divided_by: block.settings.collection.image.aspect_ratio
+                      -%}
+                      {{ block.settings.collection.image | image_url: width: 3840 | image_tag:
+                        width: image_width,
+                        height: image_height,
+                        sizes: '100vw',
+                        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                    {% endif %}
+                  </picture>
+                {%- endif -%}
+                {% if block.settings.collection.title %}
+                  <span class="bodytext-sm">
+                    {{ block.settings.collection.title }}
+                  </span>
+                {% endif %}
+              </a>
+            </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="products-slider__pagination d-flex justify-content-center">
+        <div class="custom-swiper-pagination swiper-pagination js-products-slider-pagination-{{ section.id }}"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector(".js-collections-list-init-{{ section.id }}");
+        const collectionsSlider = new Swiper(wrapper, {
+          slidesPerView: 1.5,
+          spaceBetween: 8,
+          breakpoints: {
+            575: { slidesPerView: 1.7, spaceBetween: 16 },
+            750: { slidesPerView: 2.1, spaceBetween: 24 },
+            990: { slidesPerView: 2.5, spaceBetween: 24 },
+            1199: { slidesPerView: {{ visible_blocks_count }}, spaceBetween: 24 },
+          },
+          pagination: {
+            el: ".js-products-slider-pagination-{{ section.id }}",
+          },
+          on: {
+            init: () => {
+              wrapper.classList.add('is-loaded');
+            }
+          }
+        });
+    });
+</script>
+
+
+{% schema %}
+{
+  "name": "Collections List",
+  "tag": "section",
+  "class": "section section-collections-list",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection Item",
+      "type": "text",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections List",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

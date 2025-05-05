@@ -44,6 +44,9 @@
             margin-top: 0;
             margin-bottom: 24px;
         }
+        h6 {
+            color: rgb(var(--color-foreground));
+        }
         p {
             margin-top: 0;
             margin-bottom: 16px;
@@ -58,6 +61,7 @@
     }
     &__bottom-text {
         margin-top: 64px;
+        color: rgb(var(--color-heading));
         @include media-breakpoint-down(md) {
             margin-top: 24px;
         }
