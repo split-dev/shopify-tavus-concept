@@ -1,12 +1,12 @@
-{{ 'custom-app.out.css' | asset_url | stylesheet_tag }}
+{{ 'custom-title.out.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .custom-app--{{ section.id }} {
+  .custom-title--{{ section.id }} {
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   }
   @media (min-width: 750px) {
-    .custom-app--{{ section.id }} {
+    .custom-title--{{ section.id }} {
         padding-top: {{ section.settings.padding_top }}px;
         padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -14,31 +14,18 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }}">
-  <section class="custom-app custom-app--{{ section.id }}">
-    <div class="page-width">
-      {% if section.settings.title != blank %}
-        <div class="custom-app__title">
-          <h2 class="">{{ section.settings.title }}</h2>
+  <section class="custom-title custom-title--{{ section.id }}">
+    <div class="page-width d-flex justify-content-center">
+      <div class="custom-title__text">
+        {{ section.settings.title }}
       </div>
-      {% endif %}
-      <div class="acustom-app__wrapper">
-        {% for block in section.blocks %}
-          {% render block %}
-        {% endfor %}
-      </div>
-      {% if section.settings.button_url != blank %}
-        <div class="custom-app__bottom d-flex justify-content-center">
-          <a class="btn btn--transparent" href="{{ section.settings.button_url }}">{{ section.settings.button_label }}</a>
-        </div>
-      {% endif %}
     </div>
   </section>
 </div>
 
-
 {% schema %}
 {
-  "name": "Custom App",
+  "name": "Custom Title",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -49,19 +36,9 @@
       "default": "background-1"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
-      "label": "Title"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label"
-    },
-    {
-      "type": "url",
-      "id": "button_url",
-      "label": "Button URL"
+      "label": "Content"
     },
     {
       "type": "header",
@@ -112,14 +89,9 @@
       "default": 0
     }
   ],
-  "blocks": [
-    {
-      "type": "@app"
-    }
-  ],
   "presets": [
     {
-      "name": "Custom App"
+      "name": "Custom Title"
     }
   ]
 }

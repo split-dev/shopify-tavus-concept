@@ -2,11 +2,137 @@
 
 .image-and-content {
     &__title {
+        display: flex;
+        justify-content: center;
         h2 {
             margin-bottom: 40px;
+            margin-top: 0;
+            max-width: 1000px;
             @include media-breakpoint-down(md) {
                 margin-bottom: 24px;
             }
+        }
+    }
+    &__wrapper {
+        gap: 24px;
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+        }
+    }
+    &__inner {
+        width: 48%;
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+    }
+    &__media {
+        width: 52%;
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+        picture {
+            display: flex;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    &__inner-text {
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 16px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+        h6 {
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+    &__bottom-text {
+        margin-top: 64px;
+        @include media-breakpoint-down(md) {
+            margin-top: 24px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+    &__bottom-button {
+        margin-top: 16px;
+        a {
+            @include media-breakpoint-down(md) {
+                width: 100%;
+            }
+        }
+    }
+    &__accodion-desk {
+        border-bottom: solid 1px $greyscale-40;
+        padding: 8px 0;
+        gap: 16px;
+        margin-bottom: 24px;
+        @media (max-width: 1099px) {
+            flex-direction: column;
+            gap: 12px;
+            padding: 16px 0;
+            margin-bottom: 8px;
+        }
+        @include media-breakpoint-down(md) {
+            display: none !important;
+        }
+        &:last-of-type {
+            margin-bottom: 26px;
+        }
+        &:first-of-type {
+            @media (max-width: 1099px) {
+                padding-top: 0 !important;
+            }
+        }
+        h4 {
+            margin: 0;
+            width: 43%;
+            @media (max-width: 1099px) {
+                width: 100%;
+            }
+        }
+    }
+    &__accodion-desk-content {
+        width: 57%;
+        @media (max-width: 1099px) {
+            width: 100%;
+        }
+    }
+    &__accodion-desk--text {
+        p {
+            margin: 0;
+        }
+    }
+    .custom-accordion__block  {
+        display: none;
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+        &:last-of-type {
+            margin-bottom: 24px;
+        }
+        &:first-of-type {
+            margin-top: -20px;
+        }
+    }
+    .custom-accordion__title {
+        padding-bottom: 12px;
+        padding-top: 20px;
+    }
+    .custom-accordion__text {
+        p {
+            margin: 0 0 8px 0;
         }
     }
 }

@@ -11,6 +11,32 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if section.settings.reverse_position %}
+    @media (min-width: 750px) {
+      .image-and-content--{{ section.id }} .image-and-content__wrapper {
+        flex-direction: row-reverse;
+      }
+    }
+  {% endif %}
+  .image-and-content--{{ section.id }} .image-and-content__title h2 {
+    text-align: {{ section.settings.alignment }};
+  }
+ 
+  {% if section.settings.show_title == 'desktop' %}
+    @media (max-width: 749px) {
+      .image-and-content--{{ section.id }} .image-and-content__title h2 {
+        display: none;
+      }
+    }
+  {% elsif section.settings.show_title == 'mobile' %}
+    @media (min-width: 750px) {
+      .image-and-content--{{ section.id }} .image-and-content__title h2 {
+        display: none;
+      }
+    }
+  {% endif %}
+  
 {%- endstyle -%}
 
 {%- liquid
@@ -23,10 +49,10 @@
     <div class="page-width">
       {% if section.settings.title != blank %}
         <div class="image-and-content__title">
-          <h2 class="h1">{{ section.settings.title }}</h2>
+          <h2 class="">{{ section.settings.title }}</h2>
       </div>
       {% endif %}
-      <div class="image-and-content__wrapper">
+      <div class="image-and-content__wrapper d-flex">
         <div class="image-and-content__media">
           {%- if section.settings.image != blank -%}
             <picture>
@@ -72,9 +98,18 @@
         </div>
         <div class="image-and-content__inner">
           <div class="image-and-content__blocks">
+            {%- assign has_accordion_script_been_output = false -%}
             {% for block in section.blocks %}
               {%- case block.type -%}
                 {%- when 'accordion' -%}
+                  <section class="image-and-content__accodion-desk d-flex justify-content-between align-items-end">
+                    <h4>{{ block.settings.title }}</h4>
+                    <div class="image-and-content__accodion-desk-content">
+                      {% if block.settings.text %}
+                        <div class="image-and-content__accodion-desk--text">{{ block.settings.text }}</div>
+                      {% endif %}
+                    </div>
+                  </section>
                   <div
                     class="custom-accordion__block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                     {{ block.shopify_attributes }}
@@ -84,7 +119,7 @@
                     {% endif %}
                   >
                     <div class="custom-accordion__accordion">
-                      <div id="title-{{ forloop.index }}" class="js-accordion-{{ block.index }} custom-accordion__title d-flex justify-content-between {% if forloop.first %}active{% endif %}">
+                      <div id="title-{{ forloop.index }}" class="js-block-accordion custom-accordion__title d-flex justify-content-between {% if forloop.first %}active{% endif %}">
                         {% if block.settings.title %}
                           <h6 class="">{{ block.settings.title }}</h6>
                         {% endif %}
@@ -99,10 +134,55 @@
                       </div>
                     </div>
                   </div>
+                  {% unless has_accordion_script_been_output %}
+                    <script>
+                      document.addEventListener("DOMContentLoaded", function () {
+                        const accordions = document.querySelectorAll(".image-and-content--{{ section.id }} .js-block-accordion");
+            
+                        accordions.forEach((accordion, index) => {
+                          const panel = accordion.nextElementSibling;
+            
+                          accordion.addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            if (panel.style.maxHeight) {
+                              panel.style.maxHeight = null;
+                            } else {
+                              panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
+                          });
+            
+                          if (index === 0) {
+                            accordion.classList.add("active");
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                          }
+                        });
+            
+                        window.addEventListener("resize", function () {
+                          accordions.forEach(accordion => {
+                            const panel = accordion.nextElementSibling;
+                            if (accordion.classList.contains("active")) {
+                              panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
+                          });
+                        });
+                      });
+                    </script>
+                    {%- assign has_accordion_script_been_output = true -%}
+                  {% endunless %}
                 {%- when 'text' -%}
-                  <div class="image-and-content__inner-text">
+                  <div class="image-and-content__inner-text image-and-content-{{ block.id }}">
                     {{ block.settings.text }}
                   </div>
+
+                  {%- style -%}
+                    {% if block.settings.mobile_hide %}
+                      @media (max-width: 750px) {
+                        .image-and-content--{{ section.id }} .image-and-content-{{ block.id }} {
+                          display: none !important;
+                        }
+                      }
+                    {% endif %}
+                  {%- endstyle -%}
               {%- endcase -%}
             {% endfor %}
           </div>
@@ -111,7 +191,7 @@
               <div class="image-and-content__bottom-text">{{ section.settings.bottom_text }}</div>
             {% endif %}
             {% if section.settings.button_url != blank %}
-              <div class="custom-app__bottom-button">
+              <div class="image-and-content__bottom-button">
                 <a class="btn btn--primary" href="{{ section.settings.button_url }}">{{ section.settings.button_label }}</a>
               </div>
             {% endif %}
@@ -123,41 +203,6 @@
 </div>
 
 
-
-
-<script>
-  //ACCORDION
-  var acc = document.getElementsByClassName("js-accordion-{{ block.index }}");
-  var i;
-
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-    });
-  }
-
-  // Set the first accordion as open on page load
-  if (acc.length > 0) {
-    var firstPanel = acc[0].nextElementSibling;
-    firstPanel.style.maxHeight = firstPanel.scrollHeight + "px";
-  }
-
-  // Recalculate maxHeight on window resize
-  window.addEventListener('resize', function() {
-    for (i = 0; i < acc.length; i++) {
-      var panel = acc[i].nextElementSibling;
-      if (acc[i].classList.contains('active')) {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-    }
-  });
-</script>
 
 
 {% schema %}
@@ -192,6 +237,32 @@
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "show_title",
+      "label": "Show Title",
+      "options": [
+        {
+          "value": "always_show",
+          "label": "Always show"
+        },
+        {
+          "value": "desktop",
+          "label": "Desktop"
+        },
+        {
+          "value": "mobile",
+          "label": "Mobile"
+        }
+      ],
+      "default": "always_show"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Title alignment",
+      "default": "center"
     },
     {
       "type": "richtext",
@@ -259,8 +330,25 @@
   ],
   "blocks": [
     {
-      "name": "Item",
+      "name": "Text",
       "type": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_hide",
+          "label": "Hide on mobile",
+          "default": false
+        },
+      ]
+    },
+    {
+      "name": "Accordion item",
+      "type": "accordion",
       "settings": [
         {
           "type": "text",

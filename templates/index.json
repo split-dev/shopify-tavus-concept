@@ -60,6 +60,73 @@
         "padding_bottom_mobile": 24
       }
     },
+    "custom_title_jJzjjz": {
+      "type": "custom-title",
+      "name": "Custom Title",
+      "settings": {
+        "color_scheme": "",
+        "title": "<h1>For professionals who want more than just products: A unifying philosophy!</h1>",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
+      }
+    },
+    "image_and_content_ze4MJk": {
+      "type": "image-and-content",
+      "blocks": {
+        "accordion_yrBNkj": {
+          "type": "accordion",
+          "settings": {
+            "title": "Brand Connect",
+            "text": "<p>We only bring selected premium brands into your studio - with real differentiation potential and attractive margins!</p>"
+          }
+        },
+        "accordion_6PLgar": {
+          "type": "accordion",
+          "settings": {
+            "title": "Academy Know",
+            "text": "<p>From product training to customer communication - we strengthen your team with practical training, tailored directly to your needs.</p>"
+          }
+        },
+        "accordion_dw9U3q": {
+          "type": "accordion",
+          "settings": {
+            "title": "Client Care",
+            "text": "<p>Individual support, quick response times and an open ear - because long-term cooperation means more to us than just supply.</p>"
+          }
+        },
+        "accordion_EpnfGN": {
+          "type": "accordion",
+          "settings": {
+            "title": "Strong Team",
+            "text": "<p>Industry experts with years of experience and a passion for beauty.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_yrBNkj",
+        "accordion_6PLgar",
+        "accordion_dw9U3q",
+        "accordion_EpnfGN"
+      ],
+      "name": "Image and Content",
+      "settings": {
+        "color_scheme": "",
+        "reverse_position": false,
+        "image": "shopify://shop_images/2025-04-09_11.50.44_1_1.jpg",
+        "title": "",
+        "show_title": "always_show",
+        "alignment": "center",
+        "bottom_text": "",
+        "button_label": "Become our Partner",
+        "button_url": "shopify://collections",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "advantages_yE4itM": {
       "type": "advantages",
       "blocks": {
@@ -114,12 +181,34 @@
     },
     "image_and_content_Rj9dHq": {
       "type": "image-and-content",
+      "blocks": {
+        "text_KLYAHH": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Beauty with Attitude. Philosophy with Character. Inspired by the Peacock.</h3>",
+            "mobile_hide": true
+          }
+        },
+        "text_h3YYnF": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Our Vision: </h6><p>We create spaces for inspiration, excellence and development - for professionals who want more than just products: sustainable partnerships, based on a shared philosophy and success.</p><h6>Our Promise:</h6><p>We accompany our customers from product selection to academy training and individual concept solutions - always with a focus on sustainable added value and professionalism.</p><h6>Our Mission:</h6><p>Inspired by the peacock - the symbol of elegance, diversity, strength and authenticity - we are building more than a network: We are forming a community for people with a sense of quality, depth and character. We believe in the power of beauty, attitude and genuine connection!</p>",
+            "mobile_hide": false
+          }
+        }
+      },
+      "block_order": [
+        "text_KLYAHH",
+        "text_h3YYnF"
+      ],
       "name": "Image and Content",
       "settings": {
         "color_scheme": "",
-        "reverse_position": false,
+        "reverse_position": true,
         "image": "shopify://shop_images/image_2_1.jpg",
         "title": "Beauty with Attitude. Philosophy with Character. Inspired by the Peacock.",
+        "show_title": "mobile",
+        "alignment": "left",
         "bottom_text": "<p><strong>Leave a request, and our manager will prepare a personalized proposal for your business.</strong></p>",
         "button_label": "Book a Personal Consultation Now!",
         "button_url": "shopify://collections",
@@ -304,6 +393,8 @@
   },
   "order": [
     "adaptive_banner_b3WJVK",
+    "custom_title_jJzjjz",
+    "image_and_content_ze4MJk",
     "advantages_yE4itM",
     "image_and_content_Rj9dHq",
     "featured_collection",
