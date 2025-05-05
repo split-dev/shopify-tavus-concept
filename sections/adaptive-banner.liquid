@@ -102,6 +102,11 @@
             }
         }
     {%- endif -%}
+    @media (max-width: 749.98px) {
+      .adaptive-banner--{{ section.id }} .adaptive-banner__content-wrapper {
+        text-align: {{ section.settings.alignment_mobile }} !important;
+      }
+    }
 {%- endstyle -%}
   
 <div class="color-{{ section.settings.color_scheme }}">
@@ -351,6 +356,12 @@
         "type": "text_alignment",
         "id": "alignment",
         "label": "Text alignment",
+        "default": "center"
+      },
+      {
+        "type": "text_alignment",
+        "id": "alignment_mobile",
+        "label": "Text alignment (mobile)",
         "default": "center"
       },
       {

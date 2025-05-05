@@ -290,41 +290,55 @@
         "padding_bottom": 36
       }
     },
-    "custom_app_KQc3rw": {
-      "type": "custom-app",
+    "adaptive_banner_33rFWV": {
+      "type": "adaptive-banner",
       "blocks": {
-        "instafeed_app_block_wia4pB": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "description_dx4wK9": {
+          "type": "description",
           "settings": {
-            "title": "",
-            "title_color": "",
-            "title_size_v2": 0,
-            "alignment": "center",
-            "instafeed_margin_top": 0,
-            "instafeed_margin_bottom": 0,
-            "instafeed_margin_sides": 0,
-            "show_instagram_link": false,
-            "link_alignment": "left",
-            "link_color": "#000000",
-            "background_color": "",
-            "feed_id": "",
-            "html_area": ""
+            "description": "<h2>Access Exclusive Partner Pricing</h2><p>We offer flexible collaboration terms based on order volume, purchase frequency, and your business needs. Leave a request, and our manager will prepare a personalized proposal for you.</p>"
+          }
+        },
+        "button_tQddG3": {
+          "type": "button",
+          "settings": {
+            "button_name": "Become our Partner",
+            "button_link": "shopify://collections",
+            "button_style": "primary"
           }
         }
       },
       "block_order": [
-        "instafeed_app_block_wia4pB"
+        "description_dx4wK9",
+        "button_tQddG3"
       ],
-      "name": "Custom App",
+      "name": "Adaptive banner",
       "settings": {
-        "color_scheme": "",
-        "title": "Join The Wellness Community",
-        "button_label": "See more on @tavus_concept",
-        "button_url": "https://www.instagram.com/olesjw",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40
+        "section_link": "",
+        "image": "shopify://shop_images/098f8a5b7d8d60496aeff420114e857a0fc387aa_1_1.png",
+        "markup": "image_as_background",
+        "image_height_auto": false,
+        "image_height_desktop": 100,
+        "image_max_height_desktop": 360,
+        "image_height_mobile": 200,
+        "image_max_height_mobile": 390,
+        "fit_to_container": "none",
+        "color_scheme": "scheme-3",
+        "bg": "linear-gradient(310deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 99%)",
+        "bg_blur": 0,
+        "vertical_alignment": "center",
+        "horizontal_alignment": "start",
+        "alignment": "left",
+        "max_width": 780,
+        "content_box_bg": false,
+        "content_padding_top": 20,
+        "content_padding_bottom": 20,
+        "content_padding_top_mobile": 20,
+        "content_padding_bottom_mobile": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
       }
     },
     "accordion_xcnQTK": {
@@ -383,55 +397,55 @@
         "padding_bottom_mobile": 40
       }
     },
-    "adaptive_banner_33rFWV": {
-      "type": "adaptive-banner",
+    "custom_app_KQc3rw": {
+      "type": "custom-app",
       "blocks": {
-        "description_dx4wK9": {
-          "type": "description",
+        "instafeed_app_block_wia4pB": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "description": "<h2>Access Exclusive Partner Pricing</h2><p>We offer flexible collaboration terms based on order volume, purchase frequency, and your business needs. Leave a request, and our manager will prepare a personalized proposal for you.</p>"
-          }
-        },
-        "button_tQddG3": {
-          "type": "button",
-          "settings": {
-            "button_name": "Become our Partner",
-            "button_link": "shopify://collections",
-            "button_style": "primary"
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
           }
         }
       },
       "block_order": [
-        "description_dx4wK9",
-        "button_tQddG3"
+        "instafeed_app_block_wia4pB"
       ],
-      "name": "Adaptive banner",
+      "name": "Custom App",
       "settings": {
-        "section_link": "",
-        "image": "shopify://shop_images/098f8a5b7d8d60496aeff420114e857a0fc387aa_1_1.png",
-        "markup": "image_as_background",
-        "image_height_auto": false,
-        "image_height_desktop": 100,
-        "image_max_height_desktop": 360,
-        "image_height_mobile": 200,
-        "image_max_height_mobile": 390,
-        "fit_to_container": "none",
-        "color_scheme": "scheme-3",
-        "bg": "linear-gradient(310deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 99%)",
-        "bg_blur": 0,
-        "vertical_alignment": "center",
-        "horizontal_alignment": "start",
-        "alignment": "left",
-        "max_width": 780,
-        "content_box_bg": false,
-        "content_padding_top": 20,
-        "content_padding_bottom": 20,
-        "content_padding_top_mobile": 20,
-        "content_padding_bottom_mobile": 20,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 24,
-        "padding_bottom_mobile": 24
+        "color_scheme": "",
+        "title": "Join The Wellness Community",
+        "button_label": "See more on @tavus_concept",
+        "button_url": "https://www.instagram.com/olesjw",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "blog_posts_iaqxew": {
+      "type": "blog-posts",
+      "name": "Blog Posts",
+      "settings": {
+        "color_scheme": "",
+        "title": "Growth with Vision",
+        "blog": "news",
+        "button_label": "See all",
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
       }
     }
   },
@@ -441,10 +455,11 @@
     "custom_title_jJzjjz",
     "image_and_content_ze4MJk",
     "advantages_yE4itM",
-    "image_and_content_Rj9dHq",
     "featured_collection",
-    "custom_app_KQc3rw",
+    "adaptive_banner_33rFWV",
+    "image_and_content_Rj9dHq",
     "accordion_xcnQTK",
-    "adaptive_banner_33rFWV"
+    "custom_app_KQc3rw",
+    "blog_posts_iaqxew"
   ]
 }

@@ -1,6 +1,6 @@
 @use '../settings/config' as *;
 
-.collections-list {
+.blog-posts {
     overflow: hidden;
     &__title {
         h2 {
@@ -53,4 +53,27 @@
             display: block;
         }
     }
+    &__date {
+        margin-top: 8px;
+        display: block;
+        color: $greyscale-50;
+    }
+    &__excerpt {
+        margin-top: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $greyscale-80;
+        * {
+            margin: 0;
+        }
+    }
+    &__bottom {
+        margin-top: 40px;
+        @include media-breakpoint-down(md) {
+            margin-bottom: 24px;
+        }
+    } 
 }

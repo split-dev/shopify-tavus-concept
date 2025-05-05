@@ -1,0 +1,189 @@
+{{ 'blog-posts.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .blog-posts--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media (min-width: 750px) {
+    .blog-posts--{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="color-{{ section.settings.color_scheme }} blog-posts blog-posts--{{ section.id }}">
+  <div class="page-width">
+    <div class="blog-posts__title">
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="blog-posts__wrapper js-blog-posts-slider-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% assign blog_handle = section.settings.blog %}
+        {% assign posts = blogs[blog_handle].articles | slice: 0, 4 %}
+
+        {% for article in posts %}
+          <div class="swiper-slide blog-posts__tile">
+            <a href="{{ article.url }}">
+              {% if article.image != blank %}
+                <picture>
+                  {% assign image_width = article.image.width %}
+                  {% assign image_height = image_width | divided_by: article.image.aspect_ratio %}
+                  {{ article.image | image_url: width: 3840 | image_tag:
+                    width: image_width,
+                    height: image_height,
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+                  }}
+                </picture>
+              {% endif %}
+          
+              <time class="blog-posts__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+                {{ article.published_at | date: '%b %d, %Y' }}
+              </time>
+          
+              <span class="blog-posts__title">{{ article.title }}</span>
+          
+              <div class="blog-posts__excerpt">
+                {% if article.excerpt != blank %}
+                  {{ article.excerpt }}
+                {% else %}
+                  {{ article.content | strip_html }}
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="blog-posts__pagination d-flex justify-content-center">
+      <div class="custom-swiper-pagination swiper-pagination js-blog-posts-pagination-{{ section.id }}"></div>
+    </div>
+
+    <div class="blog-posts__bottom d-flex justify-content-center">
+      <a class="btn btn--transparent" href="{{ section.settings.blog.url }}">{{ section.settings.button_label }}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector(".js-blog-posts-slider-{{ section.id }}");
+
+    if (!wrapper) return;
+
+    const blogSlider = new Swiper(wrapper, {
+      slidesPerView: 1.5,
+      spaceBetween: 8,
+      breakpoints: {
+        575: { slidesPerView: 1.7, spaceBetween: 16 },
+        750: { slidesPerView: 2.1, spaceBetween: 24 },
+        990: { slidesPerView: 2.5, spaceBetween: 24 },
+        1199: { slidesPerView: 4, spaceBetween: 24 },
+      },
+      pagination: {
+        el: ".js-blog-posts-pagination-{{ section.id }}",
+        clickable: true
+      },
+      on: {
+        init: () => {
+          wrapper.classList.add('is-loaded');
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
+{% schema %}
+{
+  "name": "Blog Posts",
+  "tag": "section",
+  "class": "section section-blog-posts",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "See all"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Posts",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
