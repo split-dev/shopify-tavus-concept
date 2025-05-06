@@ -1,0 +1,206 @@
+{{ 'testimonials.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .testimonials--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 750px) {
+    .testimonials--{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign image_width = section.settings.image.width
+  assign image_height = image_width | divided_by: section.settings.image.aspect_ratio
+-%}
+
+
+<section class="color-{{ section.settings.color_scheme }} testimonials testimonials--{{ section.id }}">
+  <div class="page-width">
+    <div class="testimonials__title">
+      <h2>{{ section.settings.title }}</h2>
+      <div class="custom-swiper-arrows">
+        <div class="swiper-button-prev swiper-arrow-prev js-testimonials-prev-{{ section.id }}">
+          {{- 'icon-arrow-prev.svg' | inline_asset_content -}}
+        </div>
+        <div class="swiper-button-next swiper-arrow-next js-testimonials-next-{{ section.id }}">
+          {{- 'icon-arrow-next.svg' | inline_asset_content -}}
+        </div>
+      </div>
+    </div>
+    <div class="testimonials__wrapper js-testimonials-init-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide testimonials__tile">
+            {%- if block.settings.image != blank -%}
+              <picture>
+                {{ block.settings.image | image_url: width: 750 | image_tag:
+                    width: image_width,
+                    height: image_height,
+                    sizes: '100vw',
+                    widths: '375, 550, 750' }}
+              </picture>
+              {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+            <div class="testimonials__tile-content">
+              <div class="testimonials__tile-content-text">{{ block.settings.text }}</div>
+              <div class="testimonials__tile-content-bottom">
+                {% if block.settings.name %}
+                  <span class="">
+                    {{ block.settings.name }}
+                  </span>
+                {% endif %}
+                {% if block.settings.position %}
+                  <h5 class="">
+                    {{ block.settings.position }}
+                  </h5>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="testimonials__pagination justify-content-center">
+        <div class="custom-swiper-pagination swiper-pagination js-testimonials-pagination-{{ section.id }}"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector(".js-testimonials-init-{{ section.id }}");
+        const collectionsSlider = new Swiper(wrapper, {
+          slidesPerView: 1.5,
+          spaceBetween: 8,
+          breakpoints: {
+            575: { slidesPerView: 2, spaceBetween: 16 },
+            750: { slidesPerView: 2, spaceBetween: 24 },
+            990: { slidesPerView: 2, spaceBetween: 24 },
+            1199: { slidesPerView: 2, spaceBetween: 24 },
+          },
+          pagination: {
+            el: ".js-testimonials-pagination-{{ section.id }}",
+          },
+          navigation: {
+            nextEl: ".js-testimonials-next-{{ section.id }}",
+            prevEl: ".js-testimonials-prev-{{ section.id }}",
+          },
+          on: {
+            init: () => {
+              wrapper.classList.add('is-loaded');
+            }
+          }
+        });
+    });
+</script>
+
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section section-testimonials",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your Trusted Partner in Business Growth"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Testimonial Item",
+      "type": "text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

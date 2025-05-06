@@ -48,6 +48,7 @@
         "vertical_alignment": "center",
         "horizontal_alignment": "start",
         "alignment": "left",
+        "alignment_mobile": "center",
         "max_width": 800,
         "content_box_bg": false,
         "content_padding_top": 20,
@@ -223,45 +224,6 @@
         "padding_bottom_mobile": 12
       }
     },
-    "image_and_content_Rj9dHq": {
-      "type": "image-and-content",
-      "blocks": {
-        "text_KLYAHH": {
-          "type": "text",
-          "settings": {
-            "text": "<h3>Beauty with Attitude. Philosophy with Character. Inspired by the Peacock.</h3>",
-            "mobile_hide": true
-          }
-        },
-        "text_h3YYnF": {
-          "type": "text",
-          "settings": {
-            "text": "<h6>Our Vision: </h6><p>We create spaces for inspiration, excellence and development - for professionals who want more than just products: sustainable partnerships, based on a shared philosophy and success.</p><h6>Our Promise:</h6><p>We accompany our customers from product selection to academy training and individual concept solutions - always with a focus on sustainable added value and professionalism.</p><h6>Our Mission:</h6><p>Inspired by the peacock - the symbol of elegance, diversity, strength and authenticity - we are building more than a network: We are forming a community for people with a sense of quality, depth and character. We believe in the power of beauty, attitude and genuine connection!</p>",
-            "mobile_hide": false
-          }
-        }
-      },
-      "block_order": [
-        "text_KLYAHH",
-        "text_h3YYnF"
-      ],
-      "name": "Image and Content",
-      "settings": {
-        "color_scheme": "",
-        "reverse_position": true,
-        "image": "shopify://shop_images/image_2_1.jpg",
-        "title": "Beauty with Attitude. Philosophy with Character. Inspired by the Peacock.",
-        "show_title": "mobile",
-        "alignment": "left",
-        "bottom_text": "<p><strong>Leave a request, and our manager will prepare a personalized proposal for your business.</strong></p>",
-        "button_label": "Book a Personal Consultation Now!",
-        "button_url": "shopify://collections",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -329,6 +291,7 @@
         "vertical_alignment": "center",
         "horizontal_alignment": "start",
         "alignment": "left",
+        "alignment_mobile": "center",
         "max_width": 780,
         "content_box_bg": false,
         "content_padding_top": 20,
@@ -339,6 +302,101 @@
         "padding_bottom": 36,
         "padding_top_mobile": 24,
         "padding_bottom_mobile": 24
+      }
+    },
+    "testimonials_t9dz6p": {
+      "type": "testimonials",
+      "blocks": {
+        "text_zNxVbi": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/side-view-beautiful-woman-with-folded-arms-looking-camera_1.jpg",
+            "text": "<p>“Working with Tavus has been a seamless experience from day one. The selection of high-quality brands, transparent terms, and efficient logistics make them a partner we truly rely on.”</p>",
+            "name": "Isabelle Moreau",
+            "position": "Head of Purchasing, Beauty Trade Europe"
+          }
+        },
+        "text_pYK3C4": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/side-view-beautiful-woman-with-folded-arms-looking-camera_1_1.jpg",
+            "text": "<p>“Tavus brings together everything a modern distributor needs — premium products, excellent support, and a team that understands the beauty industry inside out. A real game-changer.”</p>",
+            "name": "Luca Romano",
+            "position": "Commercial Director, SalonSupply Italia"
+          }
+        },
+        "text_QegMgg": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/CF-after.jpg",
+            "text": "<p>I like it!</p>",
+            "name": "Mika Om",
+            "position": "HR"
+          }
+        },
+        "text_ra34Yy": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/image_3.jpg",
+            "text": "<p>“Tavus brings together everything a modern distributor needs — premium products, excellent support, and a team that understands the beauty industry inside out. A real game-changer\"</p>",
+            "name": "Tata",
+            "position": "Shopify Developer"
+          }
+        }
+      },
+      "block_order": [
+        "text_zNxVbi",
+        "text_pYK3C4",
+        "text_QegMgg",
+        "text_ra34Yy"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "color_scheme": "",
+        "title": "Your Trusted Partner in Business Growth",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "image_and_content_Rj9dHq": {
+      "type": "image-and-content",
+      "blocks": {
+        "text_KLYAHH": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Beauty with Attitude. Philosophy with Character. Inspired by the Peacock.</h3>",
+            "mobile_hide": true
+          }
+        },
+        "text_h3YYnF": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Our Vision: </h6><p>We create spaces for inspiration, excellence and development - for professionals who want more than just products: sustainable partnerships, based on a shared philosophy and success.</p><h6>Our Promise:</h6><p>We accompany our customers from product selection to academy training and individual concept solutions - always with a focus on sustainable added value and professionalism.</p><h6>Our Mission:</h6><p>Inspired by the peacock - the symbol of elegance, diversity, strength and authenticity - we are building more than a network: We are forming a community for people with a sense of quality, depth and character. We believe in the power of beauty, attitude and genuine connection!</p>",
+            "mobile_hide": false
+          }
+        }
+      },
+      "block_order": [
+        "text_KLYAHH",
+        "text_h3YYnF"
+      ],
+      "name": "Image and Content",
+      "settings": {
+        "color_scheme": "",
+        "reverse_position": true,
+        "image": "shopify://shop_images/image_2_1.jpg",
+        "title": "Beauty with Attitude. Philosophy with Character. Inspired by the Peacock.",
+        "show_title": "mobile",
+        "alignment": "left",
+        "bottom_text": "<p><strong>Leave a request, and our manager will prepare a personalized proposal for your business.</strong></p>",
+        "button_label": "Book a Personal Consultation Now!",
+        "button_url": "shopify://collections",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
       }
     },
     "accordion_xcnQTK": {
@@ -457,6 +515,7 @@
     "advantages_yE4itM",
     "featured_collection",
     "adaptive_banner_33rFWV",
+    "testimonials_t9dz6p",
     "image_and_content_Rj9dHq",
     "accordion_xcnQTK",
     "custom_app_KQc3rw",
