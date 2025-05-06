@@ -224,8 +224,30 @@
         "padding_bottom_mobile": 12
       }
     },
+    "products_slider_xpVFEN": {
+      "type": "products-slider",
+      "name": "Products Slider",
+      "settings": {
+        "color_scheme": "",
+        "title": "Shop",
+        "collection": "beauty-salons",
+        "button_label": "See All",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_color_picker": false,
+        "quick_add": "none",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "all",
         "products_to_show": 8,
@@ -513,6 +535,7 @@
     "custom_title_jJzjjz",
     "image_and_content_ze4MJk",
     "advantages_yE4itM",
+    "products_slider_xpVFEN",
     "featured_collection",
     "adaptive_banner_33rFWV",
     "testimonials_t9dz6p",

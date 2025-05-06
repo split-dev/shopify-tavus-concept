@@ -122,6 +122,7 @@ html {
   gap: 35px;
   .swiper-button-next,
   .swiper-button-prev {
+    z-index: 1 !important;
     top: auto;
     position: relative;
     &:after {
@@ -141,9 +142,43 @@ html {
     }
   }
   .swiper-button-disabled {
-    opacity: 1;
+    opacity: 1 !important;
     svg {
       color: $greyscale-50;
     }
+  }
+}
+
+//PRODUCT CARD
+.card {
+  &:hover {
+    .card__heading {
+      color: $primary-dark !important;
+    }
+    .gradient {
+      background: $greyscale-40;
+    }
+  }
+  a {
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+  .gradient {
+    transition: 0.3s;
+  }
+  &__information {
+    padding-top: 8px !important;
+  }
+  &__heading {
+    font-family: var(--font-body-family);
+    font-size: 16px;
+    margin-bottom: 8px !important;
+    font-weight: 700;
+    transition: 0.3s;
+  }
+  &__product-type {
+    color: $greyscale-80;
+    margin: 0;
   }
 }
