@@ -5,7 +5,22 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
-<nav class="header__inline-menu">
+<style>
+  .header--middle-left .header__inline-menu {
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+  }
+  .has-submenu:hover .submenu {
+    display: block;
+  }
+</style>
+
+
+{% comment %} <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
@@ -91,4 +106,119 @@
       </li>
     {%- endfor -%}
   </ul>
+</nav> {% endcomment %}
+
+<nav class="header__inline-menu header__custom-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links limit:5 -%}
+      <li class="header__custom-menu-item-li {% if link.links.size > 0 %}has-submenu{% endif %}">
+        <a
+          id="HeaderMenu-{{ link.handle }}"
+          href="{{ link.url }}"
+          class="header__menu-item list-menu__item link link--text focus-inset"
+          {% if link.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          <span {% if link.current %}class="header__active-menu-item"{% endif %}>
+            {{- link.title | escape -}}
+          </span>
+          {% if link.links.size > 0 %}
+            {{- 'icon-chevron.svg' | inline_asset_content -}}
+          {% endif %}
+        </a>
+
+        {%- if link.links.size > 0 -%}
+          <div class="header__submenu">
+            <div class="page-width">
+              <div class="header__submenu-wrapper">
+                <ul class="d-flex header__submenu-wrapper-ul">
+                  {%- for sublink in link.links -%}
+                    <li class="header__submenu-item {% for block in section.blocks %} {% if block.settings.title == sublink.title %}has-megamenu{% endif %}{% endfor %}">
+                      <a href="{{ sublink.url }}" class="submenu-link">
+                        {{ sublink.title }}
+                        {% for block in section.blocks %} 
+                          {% if block.settings.title == sublink.title %}
+                            {{- 'icon-chevron.svg' | inline_asset_content -}}
+                          {% endif %}
+                        {% endfor %}
+                      </a>
+                      {% for block in section.blocks limit:5 %}
+                        {% if block.settings.title == sublink.title %}
+                          {% case block.type %}
+                            {%- when 'nav-list' -%}
+                              <div class="header__mega-menu-wrapper">
+                                <div class="header__mega-menu">
+                                  <div class="page-width d-flex justify-content-between">
+                                    <div class="header__mega-menu-nav d-flex">
+                                      {% if linklists[block.settings.link_list_1].title != blank %}
+                                        <div class="header__mega-menu-nav-list">
+                                          <h5 class="">{{ linklists[block.settings.link_list_1].title }}</h5>
+                                          <ul class="">
+                                            {% for link in linklists[block.settings.link_list_1].links %}
+                                              <li>
+                                                <a class="" href="{{ link.url }}">
+                                                  {{- link.title | escape -}}
+                                                </a>
+                                              </li>
+                                            {% endfor %}
+                                          </ul>
+                                        </div>
+                                      {% endif %}
+                                      {% if linklists[block.settings.link_list_2].title != blank %}
+                                        <div class="header__mega-menu-nav-list">
+                                          <h5 class="">{{ linklists[block.settings.link_list_2].title }}</h5>
+                                          <ul class=""> 
+                                            {% for link in linklists[block.settings.link_list_2].links %}
+                                              <li>
+                                                <a class="" href="{{ link.url }}">
+                                                  {{- link.title | escape -}}
+                                                </a>
+                                              </li>
+                                            {% endfor %}
+                                          </ul>
+                                        </div>
+                                      {% endif %}              
+                                    </div>
+                                    <div class="header__mega-menu-products d-flex">
+                                      {% assign product_ids = "product_1,product_2,product_3" | split: "," %}
+                                      {% for product_id in product_ids %}
+                                        {% assign product_handle = block.settings[product_id] %}
+                                        {% if product_handle != blank %}
+                                          {% assign product = all_products[product_handle] %}
+                                          {% render 'card-product',
+                                            card_product: product,
+                                            media_aspect_ratio: section.settings.image_ratio,
+                                            image_shape: section.settings.image_shape,
+                                            show_secondary_image: section.settings.show_secondary_image,
+                                            show_vendor: section.settings.show_vendor,
+                                            show_rating: section.settings.show_rating,
+                                            show_color_picker: section.settings.show_color_picker,
+                                            skip_styles: skip_card_product_styles,
+                                            section_id: section.id,
+                                            quick_add: section.settings.quick_add,
+                                            show_variant_price: true
+                                          %}
+                                        {% endif %}
+                                      {% endfor %}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          {%- endcase -%}
+                        {% endif %}
+                      {% endfor %} 
+      
+      
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
 </nav>
+

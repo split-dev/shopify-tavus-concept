@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
+{{ 'header.out.css' | asset_url | stylesheet_tag }}
 
 <style>
   header-drawer {
@@ -613,25 +614,66 @@
       "id": "padding_top",
       "min": 0,
       "max": 36,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 20
+      "default": 9
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
       "max": 36,
-      "step": 4,
+      "step": 1,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
+      "default": 9
     }
   ],
   "blocks": [
     {
-      "type": "@app"
+      "name": "Menu Nav List",
+      "type": "nav-list",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "header",
+          "content": "Nav List Mega Menu"
+        },
+        {
+          "type": "link_list",
+          "id": "link_list_1",
+          "label": "Choose a link list"
+        },
+        {
+          "type": "link_list",
+          "id": "link_list_2",
+          "label": "Choose a link list"
+        },
+        {
+          "type": "header",
+          "content": "Products"
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        },
+        {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product 3"
+        }
+      ]
     }
   ]
 }

@@ -37,9 +37,25 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "nav_list_6fRiWC": {
+          "type": "nav-list",
+          "settings": {
+            "title": "Hair",
+            "link_list_1": "needs",
+            "link_list_2": "categories",
+            "product_1": "mover-perm-copy",
+            "product_2": "calming-spray",
+            "product_3": "maple-aqua-rinse"
+          }
+        }
+      },
+      "block_order": [
+        "nav_list_6fRiWC"
+      ],
       "settings": {
         "logo_position": "middle-left",
-        "mobile_logo_position": "center",
+        "mobile_logo_position": "left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
@@ -50,8 +66,8 @@
         "enable_language_selector": false,
         "enable_customer_avatar": false,
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 9,
+        "padding_bottom": 9
       }
     }
   },

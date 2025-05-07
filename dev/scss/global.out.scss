@@ -154,6 +154,9 @@ html {
   &:hover {
     .card__heading {
       color: $primary-dark !important;
+      a {
+        color: $primary-dark !important;
+      }
     }
     .gradient {
       background: $greyscale-40;
