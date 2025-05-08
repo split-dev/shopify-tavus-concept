@@ -1770,7 +1770,7 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer .field input:not(:placeholder-shown),
 .customer .field input:-webkit-autofill {
-  padding: 2.2rem 1.5rem 0.8rem 2rem;
+  padding: 0.8rem 1.5rem 0.8rem 2rem;
   margin: var(--inputs-border-width);
 }
 
@@ -2562,8 +2562,8 @@ input[type='checkbox'] {
 }
 
 .header__icon .icon {
-  height: 2rem;
-  width: 2rem;
+  height: 2.6rem !important;
+  width: 2.6rem !important;
   fill: none;
   vertical-align: middle;
 }
