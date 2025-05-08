@@ -101,7 +101,7 @@ html {
   display: flex;
   bottom: auto !important;
   top: auto !important;
-  z-index: 2;
+  z-index: 1 !important;
   .swiper-pagination-bullet {
       width: 100%;
       margin: 0 !important;

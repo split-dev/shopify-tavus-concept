@@ -113,8 +113,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__close-button:focus,
 .menu-drawer__menu-item:hover,
 .menu-drawer__close-button:hover {
-  color: rgb(var(--color-foreground));
-  background-color: rgba(var(--color-foreground), 0.04);
+  /* color: rgb(var(--color-foreground));
+  background-color: rgba(var(--color-foreground), 0.04); */
 }
 
 .menu-drawer__menu-item--active:hover {
@@ -164,9 +164,9 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__close-button .svg-wrapper {
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
   margin-right: 1rem;
-  width: 15px;
+  /* width: 15px; */
 }
 
 .menu-drawer__utility-links {

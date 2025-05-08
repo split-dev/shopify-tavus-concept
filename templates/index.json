@@ -280,7 +280,7 @@
         "description_dx4wK9": {
           "type": "description",
           "settings": {
-            "description": "<h2>Access Exclusive Partner Pricing</h2><p>We offer flexible collaboration terms based on order volume, purchase frequency, and your business needs. Leave a request, and our manager will prepare a personalized proposal for you.</p>"
+            "description": "<h1>Access Exclusive Partner Pricing</h1><p>We offer flexible collaboration terms based on order volume, purchase frequency, and your business needs. Leave a request, and our manager will prepare a personalized proposal for you.</p>"
           }
         },
         "button_tQddG3": {
@@ -314,7 +314,7 @@
         "horizontal_alignment": "start",
         "alignment": "left",
         "alignment_mobile": "center",
-        "max_width": 780,
+        "max_width": 840,
         "content_box_bg": false,
         "content_padding_top": 20,
         "content_padding_bottom": 20,
