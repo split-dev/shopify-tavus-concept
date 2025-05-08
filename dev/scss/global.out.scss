@@ -184,4 +184,19 @@ html {
     color: $greyscale-80;
     margin: 0;
   }
+  .price-item.price-item--regular {
+    color: rgb(var(--color-heading));
+    font-weight: 700;
+  }
+  .price__sale {
+    .price-item.price-item--regular {
+      font-size: 16px;
+      color: $greyscale-80 !important;
+      font-weight: 400;
+    }
+    .price-item.price-item--sale {
+      color: rgb(var(--color-heading));
+      font-weight: 700;
+    }
+  }
 }
