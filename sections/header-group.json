@@ -48,10 +48,22 @@
             "product_2": "calming-spray",
             "product_3": "maple-aqua-rinse"
           }
+        },
+        "nav_list_GhhzmR": {
+          "type": "nav-list",
+          "settings": {
+            "title": "Man",
+            "link_list_1": "categories",
+            "link_list_2": "",
+            "product_1": "test-product",
+            "product_2": "mover-perm",
+            "product_3": ""
+          }
         }
       },
       "block_order": [
-        "nav_list_6fRiWC"
+        "nav_list_6fRiWC",
+        "nav_list_GhhzmR"
       ],
       "settings": {
         "logo_position": "middle-left",
