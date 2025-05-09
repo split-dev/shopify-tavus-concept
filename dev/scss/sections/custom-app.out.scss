@@ -19,7 +19,7 @@
         }
         > div {
             @include media-breakpoint-down(md) {
-                width: calc(50% - 8px) !important;
+                width: calc(50% - 4px) !important;
                 height: calc(50vw * 16 / 12) !important;
                 max-height: 350px;
             }

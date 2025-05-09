@@ -185,7 +185,7 @@
 
                   <div class="footer__mobile-accordion">
                     {%- if block.settings.menu != blank -%}
-                      <div id="faq-title-{{ forloop.index }}" class="js-accordion-{{ section.index }} footer__mobile-accordion-title d-flex justify-content-between {% if forloop.first %}active{% endif %}">
+                      <div id="faq-title-{{ forloop.index }}" class="js-accordion-{{ section.index }} footer__mobile-accordion-title d-flex justify-content-between ">
                       {%- if block.settings.heading != blank -%}
                         <h6 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h6>
                       {%- endif -%}
@@ -285,11 +285,11 @@
     });
   }
 
-  // Set the first accordion as open on page load
+  {% comment %} // Set the first accordion as open on page load
   if (acc.length > 0) {
     var firstPanel = acc[0].nextElementSibling;
     firstPanel.style.maxHeight = firstPanel.scrollHeight + "px";
-  }
+  } {% endcomment %}
 
   // Recalculate maxHeight on window resize
   window.addEventListener('resize', function() {

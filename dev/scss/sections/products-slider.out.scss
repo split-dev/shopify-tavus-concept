@@ -42,7 +42,7 @@
     &__bottom {
         margin-top: 40px;
         @include media-breakpoint-down(md) {
-            margin-bottom: 24px;
+            margin-top: 24px;
         }
     } 
 }

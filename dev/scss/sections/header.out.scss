@@ -1,10 +1,20 @@
 @use '../settings/config' as *;
 
 .header {
+    @include media-breakpoint-down(md) {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
     .icon.icon-close,
     .icon.icon-hamburger {
         width: 22px !important;
         height: 22px !important;
+    }
+    .icon {
+        transition: color 0.3s, transform 0.3s;
+        &:hover {
+            color: $primary;
+        }
     }
     .search__input {
         border: solid 1px $greyscale-50;
@@ -52,7 +62,7 @@
             padding: 16px;
             &:hover {
                 > a {
-                    color: $primary-dark
+                    color: $primary;
                 }
             }
         }
@@ -96,7 +106,7 @@
                 pointer-events: auto !important;
             }
             .header__menu-item {
-                color: $primary-dark;
+                color: $primary;
             }
         }
         .header__mega-menu-wrapper {
@@ -148,7 +158,7 @@
                 margin-bottom: 22px;
                 letter-spacing: 0.8px;
                 &:hover {
-                    color: $primary-dark;
+                    color: $primary;
                 }
             }
         }
@@ -265,6 +275,9 @@
     &__utility {
         padding: 24px 16px 16px 16px;
         border-top: solid 1px $greyscale-20;
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
         a {
             color: rgb(var(--color-heading));
             font-size: 16px;

@@ -178,7 +178,7 @@
         "text_T4gp9E": {
           "type": "text",
           "settings": {
-            "svg": "shopify://shop_images/Icons-Premium.svg",
+            "svg": "shopify://shop_images/Icons-Premium_1.svg",
             "title": "Premium Quality",
             "text": "<p>We use only pure, eco-friendly ingredients to create products that promote wellness and sustainability.</p>"
           }
@@ -186,7 +186,7 @@
         "text_B79nym": {
           "type": "text",
           "settings": {
-            "svg": "shopify://shop_images/Icons-Ingredients.svg",
+            "svg": "shopify://shop_images/Icons-Ingredients_1.svg",
             "title": "Sustainable Ingredients",
             "text": "<p>We use natural, sustainable ingredients that match your brand’s environmental values.</p>"
           }
@@ -194,7 +194,7 @@
         "text_3VU8MT": {
           "type": "text",
           "settings": {
-            "svg": "shopify://shop_images/Icons-Supply.svg",
+            "svg": "shopify://shop_images/Icons-Supply_1.svg",
             "title": "Next Day Delivery",
             "text": "<p>With our reliable and punctual delivery, we ensure your business needs are met without any delays.</p>"
           }
@@ -202,7 +202,7 @@
         "text_7z8MD9": {
           "type": "text",
           "settings": {
-            "svg": "shopify://shop_images/Icons-Customizable.svg",
+            "svg": "shopify://shop_images/Icons-Customizable_1.svg",
             "title": "Customizable Solutions",
             "text": "<p>We provide flexible options to customize products, helping you differentiate your brand in the market.</p>"
           }
