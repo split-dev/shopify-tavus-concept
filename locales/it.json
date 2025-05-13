@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -535,6 +544,22 @@
       "send_on_label": "Spedisci il giorno (opzionale)",
       "expanded": "Modulo destinatario del buono regalo espanso",
       "collapsed": "Modulo destinatario del buono regalo compresso"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "merchant_instruction_errors": {
+        "invalid_price_override_target": "L'istruzione di sostituzione del prezzo della merce per l'articolo %{stable_id} non è valida poiché si tratta di un componente del pacchetto."
+      }
+    }
+  },
+  "customer_accounts": {
+    "order_details": {
+      "login_card": {
+        "resend_link_and_login": "Per visualizzare i dettagli del tuo ordine, accedi o invia un nuovo collegamento all'indirizzo e-mail o al numero di telefono utilizzato al momento del pagamento.",
+        "resend_link_only": "Per visualizzare i dettagli del tuo ordine, invia un nuovo collegamento all'indirizzo e-mail o al numero di telefono utilizzato al momento del pagamento.",
+        "resend_link": "Invia nuovo collegamento"
+      }
     }
   }
 }
