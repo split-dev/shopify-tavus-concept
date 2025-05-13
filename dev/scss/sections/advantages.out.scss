@@ -27,6 +27,7 @@
         width: 25%;
         @include media-breakpoint-down(md) {
             width: 100%;
+            justify-content: flex-start;
         }
         > div {
             padding-left: 20px;
