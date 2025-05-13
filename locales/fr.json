@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -535,6 +544,26 @@
       "send_on_label": "Envoyer le (facultatif)",
       "expanded": "Formulaire de destinataire de carte-cadeau agrandi",
       "collapsed": "Formulaire de destinataire de carte-cadeau réduit"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "payment": {
+        "payment_method_incompatible_with_payment_terms": "Le mode de paiement est incompatible avec les conditions de paiement."
+      },
+      "merchant_instruction_errors": {
+        "invalid_price_override_target": "L'instruction de remplacement de prix de la marchandise pour l'article %{stable_id} n'est pas valide car il s'agit d'un composant groupé."
+      },
+      "memberships": {
+        "delivery_promise_unfulfillable": "L'adresse n'est pas prise en charge pour l'adhésion actuelle."
+      }
+    }
+  },
+  "customer_accounts": {
+    "order_details": {
+      "login_card": {
+        "resend_link_only": "Pour afficher les détails de votre commande, envoyez un nouveau lien à l'e-mail ou au numéro de téléphone utilisé lors du paiement."
+      }
     }
   }
 }
