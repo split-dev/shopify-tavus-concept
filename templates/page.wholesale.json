@@ -15,9 +15,27 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "wholesale_form_d4kPJ4": {
+      "type": "wholesale-form",
+      "name": "Wholesale Form",
+      "settings": {
+        "heading": "Wholesale Form",
+        "subheading": "Create an account and get unique offers",
+        "thank-title": "Thank you!",
+        "thank": "Thank you submitting the Tavus wholesale form. Please check your email with your approval and instructions regarding the next steps!!",
+        "email_error": "",
+        "heading_size": "h2",
+        "color_scheme": "background-1",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "wholesale_form_d4kPJ4"
   ]
 }
