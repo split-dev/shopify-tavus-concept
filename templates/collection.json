@@ -21,21 +21,127 @@
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 16,
-        "columns_desktop": 4,
-        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "enable_filtering": true,
+        "filter_type": "vertical",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "collections_list_DHaEgy": {
+      "type": "collections-list",
+      "blocks": {
+        "text_Ept7Nq": {
+          "type": "text",
+          "settings": {
+            "collection": "hair"
+          }
+        },
+        "text_XFdr6X": {
+          "type": "text",
+          "settings": {
+            "collection": "spa-wellness-centers"
+          }
+        },
+        "text_D7MeVk": {
+          "type": "text",
+          "settings": {
+            "collection": "luxury-hotels-resorts"
+          }
+        },
+        "text_VzC6Mp": {
+          "type": "text",
+          "settings": {
+            "collection": "fitness-yoga-mindfulness-spaces"
+          }
+        }
+      },
+      "block_order": [
+        "text_Ept7Nq",
+        "text_XFdr6X",
+        "text_D7MeVk",
+        "text_VzC6Mp"
+      ],
+      "name": "Collections List",
+      "settings": {
+        "color_scheme": "",
+        "title": "Discover the Exclusive Products in Our Categories",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "accordion_bW8MGc": {
+      "type": "accordion",
+      "blocks": {
+        "text_tm9mda": {
+          "type": "text",
+          "settings": {
+            "title": "What ingredients are used in your products?",
+            "text": "<p>Getting started is simple — just fill out the form on our website or reach out directly. We partner with everyone from small studios and salons to large-scale distributors. Flexible terms tailored to your business are our standard.</p>"
+          }
+        },
+        "text_jnxzYc": {
+          "type": "text",
+          "settings": {
+            "title": "Do you have a minimum order quantity and what are the wholesale terms?",
+            "text": "<p>test</p>"
+          }
+        },
+        "text_qqn3yw": {
+          "type": "text",
+          "settings": {
+            "title": "Where do you ship and how is logistics handled?",
+            "text": "<p>test</p>"
+          }
+        },
+        "text_eUNbxp": {
+          "type": "text",
+          "settings": {
+            "title": "Do you provide product certifications and official documentation?",
+            "text": "<p>Getting started is simple — just fill out the form on our website or reach out directly. We partner with everyone from small studios and salons to large-scale distributors. Flexible terms tailored to your business are our standard.</p>"
+          }
+        },
+        "text_bFMUBz": {
+          "type": "text",
+          "settings": {
+            "title": "Can I sell your products online or on marketplaces?",
+            "text": "<p>test</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_tm9mda",
+        "text_jnxzYc",
+        "text_qqn3yw",
+        "text_eUNbxp",
+        "text_bFMUBz"
+      ],
+      "name": "Accordion",
+      "settings": {
+        "color_scheme": "",
+        "title": "Frequently Asked Questions",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "collections_list_DHaEgy",
+    "accordion_bW8MGc"
   ]
 }
