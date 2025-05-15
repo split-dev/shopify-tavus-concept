@@ -42,7 +42,7 @@
         "nav_list_6fRiWC": {
           "type": "nav-list",
           "settings": {
-            "title": "Hair",
+            "link_index": 1,
             "link_list_1": "needs",
             "link_list_2": "categories",
             "product_1": "mover-perm-copy",
@@ -53,7 +53,7 @@
         "nav_list_GhhzmR": {
           "type": "nav-list",
           "settings": {
-            "title": "Man",
+            "link_index": 4,
             "link_list_1": "categories",
             "link_list_2": "",
             "product_1": "test-product",

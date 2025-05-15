@@ -25,10 +25,11 @@
                 <li>
                   {% if forloop.index == 1 %}
                     {%- for childlink in link.links -%}
+                      {% assign currentIndex = forloop.index %}
                       {% assign matched_block = null %}
                     
                       {% for block in section.blocks %}
-                        {% if block.settings.title == childlink.title %}
+                        {% if block.settings.link_index == currentIndex %}
                           {% assign matched_block = block %}
                           {% break %}
                         {% endif %}
