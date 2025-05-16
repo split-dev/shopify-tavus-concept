@@ -135,18 +135,19 @@
               <div class="header__submenu-wrapper">
                 <ul class="d-flex header__submenu-wrapper-ul">
                   {%- for sublink in link.links -%}
+                    {% assign parentIndex = forloop.parentloop.index %}
                     {% assign currentIndex = forloop.index %}
                     <li class="header__submenu-item {% for block in section.blocks %} {% if block.settings.link_index == currentIndex %}has-megamenu{% endif %}{% endfor %}">
                       <a href="{{ sublink.url }}" class="submenu-link">
                         {{ sublink.title }}
                         {% for block in section.blocks %} 
-                          {% if block.settings.link_index == currentIndex %}
+                          {% if block.settings.parent_index == parentIndex and block.settings.link_index == currentIndex %}
                             {{- 'icon-chevron.svg' | inline_asset_content -}}
                           {% endif %}
                         {% endfor %}
                       </a>
                       {% for block in section.blocks limit:5 %}
-                        {% if block.settings.link_index == currentIndex %}
+                        {% if block.settings.parent_index == parentIndex and block.settings.link_index == currentIndex %}
                           {% case block.type %}
                             {%- when 'nav-list' -%}
                               <div class="header__mega-menu-wrapper">
